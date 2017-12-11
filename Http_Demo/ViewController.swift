@@ -7,19 +7,98 @@
 //
 
 import UIKit
+import SwiftHTTP
+import SwiftyJSON
+
+let GfoodsUrl = "https://www.365greenlife.com/api/tiptop/v1/"
+//token会过期
+let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IjEzMzYxNjM5NzIzIiwidXNlcl9pZCI6IjEwMDAxIiwicm9sZV9uYW1lIjoiXHU2NjZlXHU5MDFhXHU3NTI4XHU2MjM3IiwiZXhwIjoxNTE1NTcwNjgyLjg3NTYwOCwiaWF0IjoxNTEyOTc4NjgyLjg3NTYwOCwidHlwZSI6IjMifQ.1sJZffVHGTuyeDuUolPJUMJwE0ciZu-YzeG4SNcPuB8"
+
+struct Product{
+    var name: String
+    var slogan: String
+    var pic_url: String
+    
+}
 
 class ViewController: UIViewController {
-
+    var product:[Product] = [Product]()
     override func viewDidLoad() {
         super.viewDidLoad()
+//        setupData()
+        setupPost()
+        setupGfoods()
+        setupToken()
+        setupTools()
+        setupGETTools()
         // Do any additional setup after loading the view, typically from a nib.
     }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
 }
+extension ViewController{
+//    请求GET接口
+    func setupData(){
+        HTTP.GET("http://hangge.com"){ response in
+           if let err = response.error {
+                print("请求失败：\(err.localizedDescription)")
+                return
+            }
+            print(response.description)
+        }
+    }
+//    请求post接口
+    func setupPost() {
+        let param = ["ShipperCode":"JD","LogisticCode":"64587611799","OrderCode":""]
+        HTTP.POST("http://139.199.169.203/ApiSearch.php", parameters: param,requestSerializer: JSONParameterSerializer()) { response in
+            if let err = response.error{
+                print("请求失败：\(err.localizedDescription)")
+            }
+            print(response.description)
+        }
+    }
+//    get接口数据的解析
+    func setupGfoods() {
+        HTTP.GET("\(GfoodsUrl)app/index/list"){ response in
+            if let err = response.error{
+                print( print("请求失败：\(err.localizedDescription)"))
+            }
+            let data=response.data
+            let aa = JSON(data)["data"]["product"]
+            for i in 0..<aa.count{
+                let dataP = Product(name:"\(aa[i]["name"])",slogan:"\(aa[i]["slogan"])",pic_url:"\(aa[i]["pic_url"])")
+                self.product.append(dataP)
+            }
+            print(self.product[aa.count-1].slogan)
+        }
+    }
+//    有token验证
+    func setupToken(){
+        let paras = ["opr":"search","data":["page":1,"limit":6,"cond":["id":" "]]] as [String : Any]
+        HTTP.POST("\(GfoodsUrl)account/address/operation", parameters: paras, headers:["Authorization":token],requestSerializer: JSONParameterSerializer()) { response in
+            if let err = response.error {
+                print("请求失败：\(err.localizedDescription)")
+                return
+            }
+            print(response.description)
+        }
+    }
+//    提出网络请求的公共方法POST请求的使用
+    func setupTools(){
+        let paras = ["opr":"search","data":["page":1,"limit":6,"cond":["id":" "]]] as [String : Any]
+        HttpStart.requestData(.POST, options: "account/address/operation", parameters: paras, token: token) { (result) in
+            print(JSON(result),"POST请求")
+        }
+    }
+//    提出网络请求的公共方法GET请求的使用
+    func setupGETTools(){
+        HttpStart.requestData(.GET, options: "app/index/list") { (result) in
+            let aa = JSON(result)["data"]["product"]
+            print(aa,"GET请求")
+        }
+    }
+}
+
 
