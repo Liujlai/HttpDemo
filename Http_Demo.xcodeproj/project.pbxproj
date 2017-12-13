@@ -14,6 +14,7 @@
 		7872F7881FDE1B9F00F3A46C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7872F7871FDE1B9F00F3A46C /* Assets.xcassets */; };
 		7872F78B1FDE1B9F00F3A46C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7872F7891FDE1B9F00F3A46C /* LaunchScreen.storyboard */; };
 		7872F7951FDE759B00F3A46C /* NetworkTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7872F7941FDE759B00F3A46C /* NetworkTools.swift */; };
+		787F26D11FE109710038357F /* AViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 787F26D01FE109700038357F /* AViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		7872F78A1FDE1B9F00F3A46C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7872F78C1FDE1B9F00F3A46C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7872F7941FDE759B00F3A46C /* NetworkTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTools.swift; sourceTree = "<group>"; };
+		787F26D01FE109700038357F /* AViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AViewController.swift; sourceTree = "<group>"; };
 		7ED4EB316278462FA9232694 /* Pods-Http_Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Http_Demo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Http_Demo/Pods-Http_Demo.debug.xcconfig"; sourceTree = "<group>"; };
 		E939D724841ADAC2246414DA /* Pods-Http_Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Http_Demo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Http_Demo/Pods-Http_Demo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -74,6 +76,7 @@
 			children = (
 				7872F7801FDE1B9F00F3A46C /* AppDelegate.swift */,
 				7872F7821FDE1B9F00F3A46C /* ViewController.swift */,
+				787F26D01FE109700038357F /* AViewController.swift */,
 				7872F7941FDE759B00F3A46C /* NetworkTools.swift */,
 				7872F7841FDE1B9F00F3A46C /* Main.storyboard */,
 				7872F7871FDE1B9F00F3A46C /* Assets.xcassets */,
@@ -202,11 +205,13 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Http_Demo/Pods-Http_Demo-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Spring/Spring.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftHTTP/SwiftHTTP.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Spring.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftHTTP.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
@@ -222,6 +227,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				787F26D11FE109710038357F /* AViewController.swift in Sources */,
 				7872F7831FDE1B9F00F3A46C /* ViewController.swift in Sources */,
 				7872F7811FDE1B9F00F3A46C /* AppDelegate.swift in Sources */,
 				7872F7951FDE759B00F3A46C /* NetworkTools.swift in Sources */,

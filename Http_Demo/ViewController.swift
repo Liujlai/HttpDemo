@@ -10,7 +10,8 @@ import UIKit
 import SwiftHTTP
 import SwiftyJSON
 
-let GfoodsUrl = "https://www.365greenlife.com/api/tiptop/v1/"
+//let GfoodsUrl = "https://www.365greenlife.com/api/tiptop/v1/"
+let GfoodsUrl = "http://10.10.51.100:10004/api/tiptop/v1/"
 //token会过期
 let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IjEzMzYxNjM5NzIzIiwidXNlcl9pZCI6IjEwMDAxIiwicm9sZV9uYW1lIjoiXHU2NjZlXHU5MDFhXHU3NTI4XHU2MjM3IiwiZXhwIjoxNTE1NTcwNjgyLjg3NTYwOCwiaWF0IjoxNTEyOTc4NjgyLjg3NTYwOCwidHlwZSI6IjMifQ.1sJZffVHGTuyeDuUolPJUMJwE0ciZu-YzeG4SNcPuB8"
 
@@ -26,11 +27,13 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 //        setupData()
-        setupPost()
-        setupGfoods()
-        setupToken()
-        setupTools()
-        setupGETTools()
+//        setupPost()
+//        setupGfoods()
+//        setupToken()
+//        setupTools()
+//        setupGETTools()
+        setupSSL()
+        setupTimedOut()
         // Do any additional setup after loading the view, typically from a nib.
     }
     override func didReceiveMemoryWarning() {
@@ -87,11 +90,14 @@ extension ViewController{
     }
 //    提出网络请求的公共方法POST请求的使用
     func setupTools(){
-        let paras = ["opr":"search","data":["page":1,"limit":6,"cond":["id":" "]]] as [String : Any]
-        HttpStart.requestData(.POST, options: "account/address/operation", parameters: paras, token: token) { (result) in
+        let paras =  ["cond":["title":"","message_type":2],"limit":4,"page": 1] as [String : Any]
+        HttpStart.requestData(.POST, options: "app/notice/listP", parameters: paras, token: token) { (result) in
+            print(result)
             print(JSON(result),"POST请求")
         }
     }
+    
+    
 //    提出网络请求的公共方法GET请求的使用
     func setupGETTools(){
         HttpStart.requestData(.GET, options: "app/index/list") { (result) in
@@ -99,6 +105,35 @@ extension ViewController{
             print(aa,"GET请求")
         }
     }
+//    设置请求超时
+    func setupSSL(){
+        var req = URLRequest(urlString: "https://www.google.com/")
+        req?.timeoutInterval = 5
+        let task = HTTP(req!)
+//        var attempted = false
+//        task.security = HTTPSecurity(certs: [HTTPSSLCert(data: data)], usePublicKeys: true)
+        task.run { (response) in
+            if let err = response.error{
+                print("error:   \(err.localizedDescription)")
+            }
+            print("opt finished :   \(response.description)")
+        }
+    }
+    func setupTimedOut(){
+       
+        var req = URLRequest(urlString: "\(GfoodsUrl)app/index/list")
+        req?.timeoutInterval = 5
+//        req?.httpMethod =
+//        req?.appendParameters(paras)
+        let task = HTTP(req!)
+        task.run { (response) in
+            if let err = response.error{
+                print("error:   \(err.localizedDescription)")
+            }
+            print("opt finished :   \(response.description)")
+        }
+    }
+
 }
 
 
