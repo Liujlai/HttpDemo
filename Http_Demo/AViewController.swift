@@ -20,7 +20,7 @@ class AViewController: UIViewController {
         views.alpha = 0
         btn = UIButton(frame: CGRect(x: 20, y: 20, width: 100, height: 100))
         btn.backgroundColor = UIColor.purple
-        btn.addTarget(self, action: #selector(btnTouch), for:.touchUpInside)
+        btn.addTarget(self, action: #selector(btnTouch), for:.touchDragInside)
         self.views.addSubview(btn)
         // Do any additional setup after loading the view.
         

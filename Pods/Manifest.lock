@@ -1,9 +1,11 @@
 PODS:
+  - MarkdownView (1.1.0)
   - Spring (1.0.3)
   - SwiftHTTP (3.0.0)
   - SwiftyJSON (4.0.0)
 
 DEPENDENCIES:
+  - MarkdownView
   - Spring (from `https://github.com/MengTo/Spring.git`, branch `swift4`)
   - SwiftHTTP
   - SwiftyJSON
@@ -19,10 +21,11 @@ CHECKOUT OPTIONS:
     :git: https://github.com/MengTo/Spring.git
 
 SPEC CHECKSUMS:
+  MarkdownView: 80db8e9a27a6c6cc22615e644e3e85c06065bab7
   Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
   SwiftHTTP: b8845e1058010e98a818a09c44568aee8c50e05a
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
 
-PODFILE CHECKSUM: f42ec867a541c649f0fb9f107b0426a36decd414
+PODFILE CHECKSUM: 586777c7050de64139a500e350818ddfac293a3e
 
 COCOAPODS: 1.3.1
