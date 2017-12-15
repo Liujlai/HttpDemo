@@ -6,7 +6,10 @@ target 'Http_Demo' do
   use_frameworks!
   pod 'SwiftHTTP'
   pod 'SwiftyJSON'
+  pod 'Freddy'
   # Pods for Http_Demo
   pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift4'
   pod 'MarkdownView'
+  pod 'SnapKit'
+  
 end

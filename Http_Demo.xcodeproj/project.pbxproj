@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		30488071998502DD0FBDB5FA /* Pods_Http_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E85269F02F2A8E370B0C348 /* Pods_Http_Demo.framework */; };
 		786A90FA1FE26D8400146912 /* BViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786A90F91FE26D8400146912 /* BViewController.swift */; };
+		786A91001FE36BEF00146912 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786A90FF1FE36BEF00146912 /* Model.swift */; };
+		786A91021FE36CE100146912 /* CViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786A91011FE36CE100146912 /* CViewController.swift */; };
+		786A91041FE372DC00146912 /* DViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786A91031FE372DC00146912 /* DViewController.swift */; };
 		7872F7811FDE1B9F00F3A46C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7872F7801FDE1B9F00F3A46C /* AppDelegate.swift */; };
 		7872F7831FDE1B9F00F3A46C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7872F7821FDE1B9F00F3A46C /* ViewController.swift */; };
 		7872F7861FDE1B9F00F3A46C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7872F7841FDE1B9F00F3A46C /* Main.storyboard */; };
@@ -21,6 +24,9 @@
 /* Begin PBXFileReference section */
 		3E85269F02F2A8E370B0C348 /* Pods_Http_Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Http_Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		786A90F91FE26D8400146912 /* BViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BViewController.swift; sourceTree = "<group>"; };
+		786A90FF1FE36BEF00146912 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		786A91011FE36CE100146912 /* CViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CViewController.swift; sourceTree = "<group>"; };
+		786A91031FE372DC00146912 /* DViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DViewController.swift; sourceTree = "<group>"; };
 		7872F77D1FDE1B9F00F3A46C /* Http_Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Http_Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7872F7801FDE1B9F00F3A46C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7872F7821FDE1B9F00F3A46C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -77,10 +83,13 @@
 			isa = PBXGroup;
 			children = (
 				7872F7801FDE1B9F00F3A46C /* AppDelegate.swift */,
+				786A90FF1FE36BEF00146912 /* Model.swift */,
+				7872F7941FDE759B00F3A46C /* NetworkTools.swift */,
 				7872F7821FDE1B9F00F3A46C /* ViewController.swift */,
 				787F26D01FE109700038357F /* AViewController.swift */,
 				786A90F91FE26D8400146912 /* BViewController.swift */,
-				7872F7941FDE759B00F3A46C /* NetworkTools.swift */,
+				786A91011FE36CE100146912 /* CViewController.swift */,
+				786A91031FE372DC00146912 /* DViewController.swift */,
 				7872F7841FDE1B9F00F3A46C /* Main.storyboard */,
 				7872F7871FDE1B9F00F3A46C /* Assets.xcassets */,
 				7872F7891FDE1B9F00F3A46C /* LaunchScreen.storyboard */,
@@ -208,14 +217,18 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Http_Demo/Pods-Http_Demo-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Freddy/Freddy.framework",
 				"${BUILT_PRODUCTS_DIR}/MarkdownView/MarkdownView.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Spring/Spring.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftHTTP/SwiftHTTP.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Freddy.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MarkdownView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Spring.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftHTTP.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
@@ -234,7 +247,10 @@
 			files = (
 				787F26D11FE109710038357F /* AViewController.swift in Sources */,
 				7872F7831FDE1B9F00F3A46C /* ViewController.swift in Sources */,
+				786A91021FE36CE100146912 /* CViewController.swift in Sources */,
+				786A91041FE372DC00146912 /* DViewController.swift in Sources */,
 				7872F7811FDE1B9F00F3A46C /* AppDelegate.swift in Sources */,
+				786A91001FE36BEF00146912 /* Model.swift in Sources */,
 				786A90FA1FE26D8400146912 /* BViewController.swift in Sources */,
 				7872F7951FDE759B00F3A46C /* NetworkTools.swift in Sources */,
 			);
