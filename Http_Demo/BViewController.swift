@@ -5,14 +5,21 @@
 //  Created by idea on 2017/12/14.
 //  Copyright © 2017年 idea. All rights reserved.
 //
-
+//富文本的显示和点击富文本href后跳转SFSafariViewController
 import UIKit
 import MarkdownView
 import SafariServices
 
 let kscreenW = UIScreen.main.bounds.size.width
 let kscreenH = UIScreen.main.bounds.size.height
-let str = "# hello World!!!\n 欢迎来到:\n [Carter's1年式灰色长袖连体衣包脚爬服全棉鲸鱼男婴儿童装](http://10.10.77.0:8081/v1/) \n ![美丽花儿](http://ww2.sinaimg.cn/large/56d258bdjw1eugeubg8ujj21kw16odn6.jpg '美丽花儿')"
+//let str = "# hello World!!!\n 欢迎来到:\n [Carter's1年式灰色长袖连体衣包脚爬服全棉鲸鱼男婴儿童装](http://10.10.77.0:8081/v1/) \n ![一张图片](http://placeimg.com/640/480/people/sepia '一张图片')"
+let str = """
+# hello World!!!
+> 欢迎来到:
+
+[Carter's1年式灰色长袖连体衣包脚爬服全棉鲸鱼男婴儿童装](http://10.10.77.0:8081/v1/)
+![一张图片](http://placeimg.com/640/480/tech '一张图片')
+"""
 class BViewController: UIViewController,SFSafariViewControllerDelegate {
     let md = MarkdownView()
     override func viewDidLoad() {
