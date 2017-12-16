@@ -6,6 +6,7 @@
 //  Copyright © 2017年 idea. All rights reserved.
 //
 //JSON解析框架Freddy的使用Demo
+//SwiftyBeaver的使用
 import UIKit
 import SwiftHTTP
 import Freddy
