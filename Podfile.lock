@@ -4,6 +4,7 @@ PODS:
   - SnapKit (4.0.0)
   - Spring (1.0.3)
   - SwiftHTTP (3.0.0)
+  - SwiftyBeaver (1.4.3)
   - SwiftyJSON (4.0.0)
 
 DEPENDENCIES:
@@ -12,6 +13,7 @@ DEPENDENCIES:
   - SnapKit
   - Spring (from `https://github.com/MengTo/Spring.git`, branch `swift4`)
   - SwiftHTTP
+  - SwiftyBeaver
   - SwiftyJSON
 
 EXTERNAL SOURCES:
@@ -30,8 +32,9 @@ SPEC CHECKSUMS:
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
   Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
   SwiftHTTP: b8845e1058010e98a818a09c44568aee8c50e05a
+  SwiftyBeaver: e10b1668e0512229c36c34769b97eed3dfae2ca3
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
 
-PODFILE CHECKSUM: 88ce803e13612893aada505c64c80b605dc2abd5
+PODFILE CHECKSUM: e8f51b464f03ba4a431a3174a4e1bd3572565541
 
 COCOAPODS: 1.3.1

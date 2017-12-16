@@ -34,31 +34,31 @@ class BViewController: UIViewController,SFSafariViewControllerDelegate {
     func linkHref(){
         // called when user touch link
         md.onTouchLink = { [weak self] request in
-        guard let url = request.url else { return false }
-    
-        if url.scheme == "file" {
-        return false
-        } else if url.scheme == "http" {
-        let safari = SFSafariViewController(url: url)
-//            self?.navigationController?.navigationBar.isHidden = true
-            self?.present(safari, animated: true)
-        return false
-        } else {
-        return false
+            guard let url = request.url else { return false }
+            
+            if url.scheme == "file" {
+                return false
+            } else if url.scheme == "http" {
+                let safari = SFSafariViewController(url: url)
+                //            self?.navigationController?.navigationBar.isHidden = true
+                self?.present(safari, animated: true)
+                return false
+            } else {
+                return false
+            }
         }
     }
-    }
-//    返回SFSafariViewController的上一界面，需要遵从SFSafariViewControllerDelegate协议
+    //    返回SFSafariViewController的上一界面，需要遵从SFSafariViewControllerDelegate协议
     func safariViewControllerDidFinish(_ controller: SFSafariViewController)
     {
         controller.dismiss(animated: true, completion: nil)
     }
     
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
+    
 }

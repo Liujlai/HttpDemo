@@ -25,10 +25,10 @@ class AViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         //            移除动画
-//        self.dismiss(animated: false, completion: nil)
-//        ballView.force = 0.7      //弹力大小
-//        ballView.duration = 1.0  //动画持续时间
-//        ballView.delay = 0.6      //动画延时多久执行
+        //        self.dismiss(animated: false, completion: nil)
+        //        ballView.force = 0.7      //弹力大小
+        //        ballView.duration = 1.0  //动画持续时间
+        //        ballView.delay = 0.6      //动画延时多久执行
         
         
     }
@@ -38,16 +38,16 @@ class AViewController: UIViewController {
         views.alpha = 1
     }
     @objc func btnTouch(){
-//        views.animation = "wobble"
-//        views.animate()
+        //        views.animation = "wobble"
+        //        views.animate()
         views.alpha = 1
-//        views.y = 50
+        //        views.y = 50
         views.x = 300
-//        上面动画执行完成后，可以进行你想要的动作。
+        //        上面动画执行完成后，可以进行你想要的动作。
         views.animateToNext {
             self.views.animation = "fall"
             self.views.animateTo()
-
+            
         }
     }
     override func didReceiveMemoryWarning() {
@@ -55,6 +55,6 @@ class AViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-
+    
+    
 }

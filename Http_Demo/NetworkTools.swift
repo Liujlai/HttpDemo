@@ -19,7 +19,7 @@ class NetworkTools {
         let Http = type == .GET ?  HTTP.GET : HTTP.POST
         Http(GfoodsUrl+options, parameters, ["Authorization":token ?? ""] ,JSONParameterSerializer()) { response in
             if let err = response.error {
-                print("请求失败：\(err.localizedDescription)")
+                log.error("请求失败：\(err.localizedDescription)")
                 return
              }
             let result = response.data

@@ -22,18 +22,25 @@ class CViewController: UIViewController {
     }
     //    get接口数据的解析
     func setupGfoods() {
-              HTTP.GET("\(GfoodsUrl)app/index/list"){ response in
+          HTTP.GET("https://www.google.com/"){ response in
             if let err = response.error{
-                print( print("请求失败：\(err.localizedDescription)"))
+                log.error("请求失败: \(err.localizedDescription)")
             }
             let datas=response.data
                 do{
                     let json = try JSON(data: datas)
-                    let aaa = try json.getArray(at: "data","product")
+                    let aaa = try json.getArray(at: "data","produict")
                     self.goods = aaa
-                }catch{
-                    print("Json 解析错误")
+                }catch {
+                    log.error("Json 解析错误: \(error)")
+                    // Now let’s log!
+                    log.verbose("not so important")  // prio 1, VERBOSE in silver
+                    log.debug("something to debug")  // prio 2, DEBUG in green
+                    log.info("a nice information")   // prio 3, INFO in blue
+                    log.warning("oh no, that won’t be good")  // prio 4, WARNING in yellow
+                    log.error("ouch, an error did occur!")  // prio 5, ERROR in red
                 }
         }
     }
+
 }

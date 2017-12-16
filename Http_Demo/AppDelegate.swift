@@ -7,14 +7,28 @@
 //
 
 import UIKit
+import SwiftyBeaver
+let log = SwiftyBeaver.self
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        let file = FileDestination()
+        file.format = "$Dyyyy-MM-dd HH:mm:ss.SSS$d $C$L$c $N.$F:$l - $M"
+        file.logFileURL = URL(fileURLWithPath: "/tmp/app_info.log")
+        log.addDestination(file)
+        
+        let fileE = FileDestination()
+        fileE.format = "$Dyyyy-MM-dd HH:mm:ss.SSS$d $C$L$c $N.$F:$l - $M"
+        fileE.minLevel = .error
+        fileE.levelString.error = "Error"
+        fileE.logFileURL = URL(fileURLWithPath: "/tmp/app_error.log")
+        log.addDestination(fileE)
+
+        
         // Override point for customization after application launch.
         return true
     }

@@ -11,5 +11,6 @@ target 'Http_Demo' do
   pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift4'
   pod 'MarkdownView'
   pod 'SnapKit'
+  pod 'SwiftyBeaver'
   
 end

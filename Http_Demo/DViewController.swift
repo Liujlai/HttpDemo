@@ -13,7 +13,7 @@ import SnapKit
 class DViewController: UIViewController {
     private var views: SpringView!
     private var btn :UIView!
-    private var num:CGFloat = 400
+    var num:CGFloat = 400
     override func viewDidLoad() {
         super.viewDidLoad()
         btn = UIView()
